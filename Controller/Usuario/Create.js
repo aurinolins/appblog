@@ -1,10 +1,15 @@
+const Create = function(paramnome , paramemail, paramidade)
+{
 
+  console.log("Entrei na funçao Create ......")
 
-const Usuario = require('../../models/Usuario.js')
+  const Usuario = require('../../models/Usuario.js')
 
-Usuario.create({nome : "Tania Bezerra Lins",
-                           email : "tania@gmail.com", idade : 26}).
-                    then(() => {
+  const usuario = new Usuario( {nome : paramnome,
+                email : paramemail,
+                idade : paramidade})
+                
+  usuario.save().then(() => {
                   console.log("Usuario Incluido com Sucesso !!!")  
                 }).
                 catch((ErrorEvent) => {
@@ -12,5 +17,6 @@ Usuario.create({nome : "Tania Bezerra Lins",
                 });
                
 
- 
-
+   return
+}
+module.exports = Create;
